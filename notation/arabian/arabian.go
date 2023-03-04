@@ -1,20 +1,24 @@
 package arabian
 
-type Arabian struct {
-}
+import (
+	"KataCalculator/calculate"
+	"fmt"
+	"log"
+)
 
-func (arab *Arabian) Division(a int, b int) (int, error) {
-	return 0, nil
-}
-
-func (arab *Arabian) Sum(a int, b int) (int, error) {
-	return 0, nil
-}
-
-func (arab *Arabian) Multiplication(a int, b int) (int, error) {
-	return 0, nil
-}
-
-func (arab *Arabian) Subtraction(a int, b int) (int, error) {
-	return 0, nil
+func CalcArabian(a int, b int, operator string) {
+	switch operator {
+	case "+":
+		fmt.Println(calculate.Sum(a, b))
+	case "-":
+		fmt.Println(calculate.Subtraction(a, b))
+	case "*":
+		fmt.Println(calculate.Multiplication(a, b))
+	case "/":
+		value, err := calculate.Division(a, b)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println(value)
+	}
 }
